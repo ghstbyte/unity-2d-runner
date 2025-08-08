@@ -10,21 +10,25 @@ public class Player : MonoBehaviour
     private Vector2 _displacementPosition;
     public Rigidbody2D rb;
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         GetDisplacementPosition();
         MovePlayerPosition();
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void GetDisplacementPosition() {
+    private void GetDisplacementPosition()
+    {
         _displacementPosition = _inputActionsCopy.InputVector.normalized * _playerSpeed * Time.fixedDeltaTime;
     }
 
-    public void MovePlayerPosition() {
+    public void MovePlayerPosition()
+    {
         rb.position += _displacementPosition;
     }
 
